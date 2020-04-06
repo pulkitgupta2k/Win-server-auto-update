@@ -40,6 +40,7 @@ Else{
 	For ($Counter = 0; $Counter -LT $Searcher.count; $Counter++){
 		$DowIns = (Get-WindowsUpdate -KBArticleID $Searcher[$Counter].KB -Install -Confirm:$false)
 		Write-Output $DowIns
+		Add-Content $ReportFile $Counter+1 
 		Add-Content $ReportFile $DowIns.Title
 		Add-Content $ReportFile $DowIns.Status
 		Add-Content $ReportFile $DowIns.DownloadResult
