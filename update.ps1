@@ -45,9 +45,11 @@ Else{
 		Add-Content $ReportFile $DowIns.DownloadResult
 		Add-Content $ReportFile $DowIns.InstallResult
 		Add-Content $ReportFile $DowIns.Description
+        Add-Content $ReportFile ".........................`r"
 		If($DowIns.InstallResult -eq "Failed"){
 			##email
-			$FlagError = 1
+			Add-Content $ReportFile "`t Update Installation Status: FAILED"
+            $FlagError = 1
 		}
 	}
 	If($FlagError -eq 1){
